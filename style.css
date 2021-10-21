@@ -7,6 +7,7 @@
     cor de fundo: #333333
     cor do texto: #cccccc
 */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 /* VARIAVEIS */
 :root 
 {
@@ -16,18 +17,20 @@
     --cor-secun-clara:  #FD9CA3;
     --cor-fundo: #333333;
     --cor-fundo-clara: #555555;
-    --cor-texto: #cccccc;
+    --cor-texto: #EEEE;
+    --font-texto: 'IBM Plex Sans', sans-serif;
+    --font-titulo: 'Playfair Display', serif;
     
 }
 
 /*Css reset**/
 *{
-    font-family: Calibri, Arial, sans-serif;
+    font-family: var(--font-texto);
     padding: 0;
     margin: 0;
     box-sizing: unset;
-    background-color: var(--cor--fundo) ;
-    color: var(--cor-texto)
+    /*background-color: var(--cor--fundo) ;
+    color: var(--cor-texto)*/
 }
 /*Css reset**/
 
@@ -46,7 +49,7 @@ header
     flex-wrap: wrap;
 }
 
-nav
+#menu-principal
 {
     display: flex;
     justify-content: center; /*Centralização horizontal*/
@@ -54,9 +57,39 @@ nav
     background-color: var(--cor-secun);
     min-height: 25%;
     width: 100%;
-    margin: 5px;
 }
-
+#menu-principal ul /*Afeta o <ul> que está dentro do menu principal*/
+{
+    list-style: none;/* Tira a decoração dos itens da lista */
+    display: flex;/*Container flex - todos os itens filhos na horizontal por padrão*/
+}
+#menu-principal ul li
+{
+    height: 36px;
+    margin: 0 10px; /* 0 topo fundo; 10px esquerda e direita*/
+    display: flex;
+}
+#menu-principal ul li a
+{
+    font-family: var(--font-titulo);
+    display: inline-block; /*Exibe como bloco em linha*/
+    height: 36px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    color: var(--cor-texto);
+    text-decoration: none; /*Sem sublinhado*/
+    background-color: var(--cor-secun);
+    transition: 300ms; /*Afeta a velocidade dos efeitos do hover*/
+}
+#menu-principal ul li a:hover /*Quando o mouso passa sobre o link do menu*/
+{
+    filter: brightness(0.8); 
+    /*Filtro que escurece a cor do item (cor de frente + cor de fundo)
+        brightness < 1: escurece
+        brightness > 1: clareia
+    */
+}
 main
 {
     display: flex;
