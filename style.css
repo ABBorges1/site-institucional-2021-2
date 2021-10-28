@@ -34,9 +34,11 @@
 }
 /*Css reset**/
 
-body
+html
 {
-    background-color: var(--cor-fundo);
+    /*background-color: var(--cor-fundo);*/
+    font-size: 16px;
+    scroll-behavior: smooth;/*rolagem suave*/
 }
 
 header
@@ -95,7 +97,8 @@ main
     display: flex;
     justify-content: center; /*Centralização horizontal*/
     align-items: stretch; /*Meus filhos tem meu tamanho*/    
-    min-height: 300px;
+    min-height: 200px; /* altura mínima */
+    background-color: var(--cor-fundo-clara);
 }
 
 section
@@ -104,32 +107,105 @@ section
     justify-content: center; /*Centralização horizontal*/
     align-items: center; /*Centralização vertical*/
     flex-direction: column;/*filhos em coluna*/
-    border: 1px solid rgb(32, 1, 53);
-    background-color: lightskyblue;
+    background-color: transparent;
     min-height: 100%;
     flex-grow: 3;
-    margin: 5px;
+    margin: 20px;
 }
 
-article{
+article
+{
 
     display: flex;
     justify-content: center; /*Centralização horizontal*/
+    flex-wrap: wrap;
     align-items: center; /*Centralização vertical*/
-    border: 1px solid rgb(182, 135, 6);
-    background-color: lightgray;
+    background-color: transparent;
     margin: 5px;
     min-height: 50px;
     width: 100%;
 }
+/*Regra para o título h1 que está dentro do section*/
+section > h1 /*O sinal > indica que serão atingidos apenas os FILHOS DIRETOS de section*/
+{
+    text-align: left;
+    width: 100%;
+    color: var(--cor-fundo);
+    font-family: var(--font-titulo);
+    font-style: italic;
+    font-size: 2rem;
+    text-shadow: -1px -1px 1px rgba(255,255,255,0.4);
+}
+/*Regra para os títulos h1 que estão dentro dos articles*/
+article h1 
+{
+    text-align: right;
+    width: 100%;
+    color: var(--cor-texto);
+    font-family: var(--font-titulo);
+    font-size: 1.5rem
+}
+/*Regra para a div interna de .cartao-carro*/
+.cartao-carro div
+{
+    height: 360px;
+    border-radius: 16px;
+}
+/*Regra para link de .cartao-carro*/
+.cartao-carro a
+{
+    text-decoration: none;
+}
+.cartao-carro a div 
+{
+    transition: 400ms;
+}
+/*Regra para o link de .cartao-carro quando o mouse sobrepor*/
+.cartao-carro a:hover div
+{
+    filter: brightness(1.2);
+    box-shadow: 3px 3px 6px rgba(255,255,255,0.15);
+}
+/*Classe cartao-carro*/
+.cartao-carro
+{
+    border: 1px solid var(--cor-fundo);
+    background-color: var(--cor-fundo);
+    width: 300px;
+    height: 360px;
+    margin: 20px;
+    border-radius: 16px;
+    
+}
 
+/*Regra para imagens dentro de .cartao-carro*/
+.cartao-carro img
+{
+    width: 100%;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+.cartao-carro h1
+{
+    font-family: var(--font-titulo);
+    font-size: 1.75rem;
+    color: var(--cor-secun);
+    text-align: left;
+    margin-left: 20px;
+}
+.cartao-carro p
+{
+    color: var(--cor-texto);
+    margin: 0 20px;
+    
+}
 aside
 {
     display: flex;
     justify-content: center; /*Centralização horizontal*/
     align-items: center; /*Centralização vertical*/
-    border: 1px solid rgb(32, 1, 53);
-    background-color: rgb(182, 182, 182);
+    border: 1px dashed dimgray;
+    background-color: lightgray;
     min-height: 100%;
     flex-grow: 1;
     margin: 5px;
@@ -138,11 +214,17 @@ aside
 footer
 {
     display: flex;
-    justify-content: center; /*Centralização horizontal*/
+    justify-content: space-around; /*distribui o espaço entre os itens filhos*/
     align-items: center; /*Centralização vertical*/
-    
     background-color: var(--cor-fundo-clara);
     min-height: 50px;
+    padding: 20px;
+    color: var(--font-texto);
+}
+footer a /*links dentro do footer*/
+{
+    color: var(--cor-prim);
+    text-decoration: none;
 }
 /*Regras para tela com largura até 600px*/
 @media screen and (max-width: 600px){
